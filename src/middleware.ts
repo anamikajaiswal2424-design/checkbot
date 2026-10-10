@@ -40,11 +40,7 @@ const getCloakedHTML = (reasons: string[]) => {
         <h1>Mixed Dry Fruits (1kg)</h1>
         <div style="height: 150px; background: #eee; display: flex; align-items: center; justify-content: center; margin: 20px 0; border-radius: 5px; color: #777;">Product Image</div>
         <div class="price">₹279 <span class="strike">₹599</span></div>
-        
-        <!-- Debug Logs Area -->
-        <div class="status-box">
-            ${logHtml}
-        </div>
+      
 
         <ul style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #444;">
             <li>✅ 100% Organic & Fresh</li>
