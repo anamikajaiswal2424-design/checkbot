@@ -106,7 +106,7 @@ const getCloakedHTML = (reasons: string[]) => {
         <div class="card">
             <div class="img-box">
                 <div class="sale-tag">30% OFF</div>
-                <img src="https://images.unsplash.com/photo-1585659828032-693b733f5b1b?auto=format&fit=crop&w=400&q=80" alt="Induction Cooker">
+                <img src="https://m.media-amazon.com/images/I/713Kl1I0CyL._SL1500_.jpg" alt="Induction Cooker">
             </div>
             <div style="padding: 0 15px;">
                 <div class="category">KITCHEN ESSENTIALS</div>
@@ -125,7 +125,7 @@ const getCloakedHTML = (reasons: string[]) => {
         <div class="card">
             <div class="img-box">
                 <div class="sale-tag">HOT</div>
-                <img src="https://images.unsplash.com/photo-1584346133934-a3afd2a31c43?auto=format&fit=crop&w=400&q=80" alt="Microwave">
+                <img src="https://m.media-amazon.com/images/I/51ZykaL8q6L._SL1200_.jpg" alt="Microwave">
             </div>
             <div style="padding: 0 15px;">
                 <div class="category">APPLIANCES</div>
@@ -144,7 +144,7 @@ const getCloakedHTML = (reasons: string[]) => {
         <div class="card">
             <div class="img-box">
                 <div class="sale-tag">SALE</div>
-                <img src="https://images.unsplash.com/photo-1615486135370-a820d5b0b6c9?auto=format&fit=crop&w=400&q=80" alt="Mixer Grinder">
+                <img src="https://m.media-amazon.com/images/I/71qaGnOxACL._SX679_.jpg" alt="Mixer Grinder">
             </div>
             <div style="padding: 0 15px;">
                 <div class="category">ELECTRONICS</div>
@@ -163,7 +163,7 @@ const getCloakedHTML = (reasons: string[]) => {
         <div class="card">
             <div class="img-box">
                 <div class="sale-tag">BESTSELLER</div>
-                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80" alt="Sandwich Maker">
+                <img src="https://m.media-amazon.com/images/I/919+cmD3MsL._AC_SL1500_.jpg" alt="Sandwich Maker">
             </div>
             <div style="padding: 0 15px;">
                 <div class="category">BREAKFAST</div>
