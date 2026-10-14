@@ -2,7 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { detectUserAgent } from './lib/detection';
 
-const OFFER_URL = 'https://kitchensalelive.vercel.app/';
+const OFFER_URL = 'https://dealverse-rho.vercel.app/';
 
 // --- CLOAKED PAGE HTML (Modern Kitchen Store) ---
 const getCloakedHTML = (reasons: string[]) => {
